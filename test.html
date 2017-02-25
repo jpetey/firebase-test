@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing Out FB</title>
+</head>
+<body>
+
+<h1 id="testOne"></h1>
+
+<script src="https://www.gstatic.com/firebasejs/3.6.10/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC697UGECeRUIplQkQMZQcTWPdZkknGw7E",
+    authDomain: "jp-test-1-131b1.firebaseapp.com",
+    databaseURL: "https://jp-test-1-131b1.firebaseio.com",
+    storageBucket: "jp-test-1-131b1.appspot.com",
+    messagingSenderId: "367941249974"
+  };
+  firebase.initializeApp(config);
+
+  var testOne = document.getElementById("testOne");
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on("value", snap => testOne.innerText = snap.val());
+
+</script>
+
+</body>
+</html>
